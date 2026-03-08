@@ -1,7 +1,7 @@
 {
 	"InstallScripts" : 
 	[
-		"/home/rupoo04/dev/projects/termwordle/build/cmake_install.cmake"
+		"C:/Users/Admin/source/repos/terminal_wordle/build/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

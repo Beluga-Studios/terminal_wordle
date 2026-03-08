@@ -1,0 +1,18 @@
+# CMake build folder
+/build/
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+
+# compiled binaries
+*.exe
+*.out
+*.o
+*.obj
+
+# vscode local settings
+.vscode/
+
+# macOS
+.DS_Store
