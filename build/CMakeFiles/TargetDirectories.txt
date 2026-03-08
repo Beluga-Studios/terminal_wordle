@@ -1,0 +1,3 @@
+/home/rupoo04/dev/projects/termwordle/build/CMakeFiles/termwordle.dir
+/home/rupoo04/dev/projects/termwordle/build/CMakeFiles/edit_cache.dir
+/home/rupoo04/dev/projects/termwordle/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/rupoo04/dev/projects/termwordle/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
