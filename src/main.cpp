@@ -5,6 +5,8 @@
 #include <cstdlib>
 #include <ctime>
 #include <algorithm>
+#include <thread>   // Required for std::this_thread::sleep_for
+#include <chrono>   // Required for duration types
 
 // ANSI colors
 #define GREEN  "\033[42m"
@@ -43,6 +45,7 @@ bool isValid(const std::string& guess, const std::vector<std::string>& words) {
 void printGuess(std::string guess, std::string answer) {
 
     for (int i = 0; i < 5; i++) {
+        std::this_thread::sleep_for(std::chrono::milliseconds(300)); // pause
 
         if (guess[i] == answer[i]) {
             std::cout << GREEN << " " << (char)toupper(guess[i]) << " " << RESET;
@@ -53,6 +56,7 @@ void printGuess(std::string guess, std::string answer) {
         else {
             std::cout << GRAY << " " << (char)toupper(guess[i]) << " " << RESET;
         }
+         std::cout << " ";
 
     }
 
