@@ -8,11 +8,13 @@
 #include <thread>   // Required for std::this_thread::sleep_for
 #include <chrono>   // Required for duration types
 
-// ANSI colors
+// ANSI colours
 #define GREEN  "\033[42m"
 #define YELLOW "\033[43m"
 #define GRAY   "\033[100m"
 #define RESET  "\033[0m"
+
+int turns = 6;
 
 // Load words from file
 std::vector<std::string> loadWords() {
@@ -41,7 +43,7 @@ bool isValid(const std::string& guess, const std::vector<std::string>& words) {
     return false;
 }
 
-// Print colored guess result
+// Print result
 void printGuess(std::string guess, std::string answer) {
 
     for (int i = 0; i < 5; i++) {
@@ -79,11 +81,11 @@ int main() {
     std::cout << "===== TERMINAL WORDLE =====\n";
     std::cout << "Guess the 5 letter word!\n\n";
 
-    for (int attempt = 1; attempt <= 6; attempt++) {
+    for (int attempt = 1; attempt <= turns; attempt++) {
 
         std::string guess;
 
-        std::cout << "Guess " << attempt << "/6: ";
+        std::cout << "Guess " << attempt << "/" << turns << ": ";
         std::cin >> guess;
 
         // lowercase
