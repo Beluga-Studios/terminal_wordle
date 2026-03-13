@@ -105,8 +105,8 @@ int main() {
 
             printGuess(guess, answer);
 
-            words.erase(std::remove(words.begin(), words.end(), guess), words.end());
-            std::cout << "Removed guessed word\n\n";
+            //words.erase(std::remove(words.begin(), words.end(), guess), words.end());
+            //std::cout << "Removed guessed word\n\n";
             
 
             if (guess == answer) {
