@@ -75,44 +75,49 @@ int main() {
         std::cout << "Failed to load words.txt\n";
         return 1;
     }
+    while (true) {
 
-    std::string answer = chooseWord(words);
+        std::string answer = chooseWord(words);
 
-    std::cout << "===== TERMINAL WORDLE =====\n";
-    std::cout << "Guess the 5 letter word!\n\n";
+        std::cout << "===== TERMINAL WORDLE =====\n";
+        std::cout << "Guess the 5 letter word!\n\n";
 
-    for (int attempt = 1; attempt <= turns; attempt++) {
+        for (int attempt = 1; attempt <= turns; attempt++) {
 
-        std::string guess;
+            std::string guess;
 
-        std::cout << "Guess " << attempt << "/" << turns << ": ";
-        std::cin >> guess;
+            std::cout << "Guess " << attempt << "/" << turns << ": ";
+            std::cin >> guess;
 
-        // lowercase
-        std::transform(guess.begin(), guess.end(), guess.begin(), ::tolower);
+            std::transform(guess.begin(), guess.end(), guess.begin(), ::tolower); // clean
 
-        if (guess.length() != 5) {
-            std::cout << "Word must be 5 letters.\n";
-            attempt--;
-            continue;
+            if (guess.length() != 5) {
+                std::cout << "Word must be 5 letters.\n";
+                attempt--;
+                continue;
+            }
+
+            if (!isValid(guess, words)) {
+                std::cout << "Not in word list.\n";
+                attempt--;
+                continue;
+            }
+
+            printGuess(guess, answer);
+
+            words.erase(std::remove(words.begin(), words.end(), guess), words.end());
+            std::cout << "Removed guessed word\n\n";
+            
+
+            if (guess == answer) {
+                std::cout << "\n You guessed it!\n";
+                return 0;
+            }
+
         }
-
-        if (!isValid(guess, words)) {
-            std::cout << "Not in word list.\n";
-            attempt--;
-            continue;
-        }
-
-        printGuess(guess, answer);
-
-        if (guess == answer) {
-            std::cout << "\n🎉 You guessed it!\n";
-            return 0;
-        }
+        std::cout << "\nYou lost! The word was: " << answer << "\n";
 
     }
-
-    std::cout << "\nYou lost! The word was: " << answer << "\n";
 
     return 0;
 }
